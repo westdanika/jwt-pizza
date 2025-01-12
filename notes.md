@@ -6,14 +6,14 @@ As part of `Deliverable ⓵ Development deployment: JWT Pizza`, start up the app
 
 | User activity                                       | Frontend component | Backend endpoints | Database SQL |
 | --------------------------------------------------- | ------------------ | ----------------- | ------------ |
-| View home page                                      |                    |                   |              |
-| Register new user<br/>(t@jwt.com, pw: test)         |                    |                   |              |
-| Login new user<br/>(t@jwt.com, pw: test)            |                    |                   |              |
-| Order pizza                                         |                    |                   |              |
-| Verify pizza                                        |                    |                   |              |
+| View home page                                      | home.tsx           | none              | none         |
+| Register new user<br/>(t@jwt.com, pw: test)         | register.tsx       | [POST] /api/auth  | INSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)\nINSERT INTO userRole (userId, role, objectId) VALUES (?, ?, ?)             |
+| Login new user<br/>(t@jwt.com, pw: test)            | login.tsx          | [PUT] /api/auth   | SELECT * FROM user WHERE email=?\nSELECT * FROM userRole WHERE userId=?             |
+| Order pizza                                         | menu.tsx, payment.tsx | [GET] /api/order/menu\n[POST] /api/order | SELECT * FROM menu\nINSERT INTO dinerOrder (dinerId, franchiseId, storeId, date) VALUES (?, ?, ?, now())\nINSERT INTO orderItem (orderId, menuId, description, price) VALUES (?, ?, ?, ?) |
+| Verify pizza                                        | delivery.tsx       | [POST] https://pizza-factory.cs329.click/api/order/verify | none        |
 | View profile page                                   |                    |                   |              |
 | View franchise<br/>(as diner)                       |                    |                   |              |
-| Logout                                              |                    |                   |              |
+| Logout                                              | logout.tsx         | [DELETE] /api/auth |              |
 | View About page                                     |                    |                   |              |
 | View History page                                   |                    |                   |              |
 | Login as franchisee<br/>(f@jwt.com, pw: franchisee) |                    |                   |              |
