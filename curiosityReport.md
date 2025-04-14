@@ -28,6 +28,8 @@ Kubernetes and Docker Swarm were both designed as solutions for that issue. Init
 
 ### Resources
 
-(https://www.cncf.io/blog/2019/06/24/demystifying-containers-part-i-kernel-space/)
-(https://gcore.com/learning/what-is-a-container-a-kernel-introduction)
-(https://www.youtube.com/watch?v=3N3n9FzebAA)
+https://www.cncf.io/blog/2019/06/24/demystifying-containers-part-i-kernel-space/
+
+https://gcore.com/learning/what-is-a-container-a-kernel-introduction
+
+https://www.youtube.com/watch?v=3N3n9FzebAA
