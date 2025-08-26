@@ -1,6 +1,6 @@
 # 🍕 JWT Pizza
 
-![Coverage badge](https://badge.cs329.click/badge/westdanika/jwtpizzacoverage)
+![Coverage badge](https://pizza-factory.cs329.click/api/badge/westdanika/jwtpizzacoverage?t=1)
 
 [![CI Pipeline](https://github.com/westdanika/jwt-pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/westdanika/jwt-pizza/actions/workflows/ci.yml)
 
@@ -63,7 +63,7 @@ npm install react react-dom react-router-dom
 
 ### Tailwind
 
-To process the Tailwind css we are going to use `postcss` and `autoprefixer`.
+To process the Tailwind css we use `postcss` and `autoprefixer`.
 
 ```sh
 npm install -D tailwindcss postcss autoprefixer

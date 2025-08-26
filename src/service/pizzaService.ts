@@ -51,11 +51,11 @@ type UserRole = {
 };
 
 type User = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  roles: UserRole[];
+  id?: string;
+  name?: string;
+  email?: string;
+  password?: string;
+  roles?: UserRole[];
 };
 
 type Store = {
@@ -69,6 +69,11 @@ type Franchise = {
   admins?: { email: string; id?: string; name?: string }[];
   name: string;
   stores: Store[];
+};
+
+type FranchiseList = {
+  franchises: Franchise[];
+  more: boolean;
 };
 
 type Endpoint = {
@@ -92,7 +97,7 @@ type JWTPayload = {
 interface PizzaService {
   login(email: string, password: string): Promise<User>;
   register(email: string, password: string, role: string): Promise<User>;
-  logout(): Promise<void>;
+  logout(): void;
   getUser(): Promise<User | null>;
   getMenu(): Promise<Menu>;
   getOrders(user: User): Promise<OrderHistory>;
@@ -100,11 +105,11 @@ interface PizzaService {
   verifyOrder(jwt: string): Promise<JWTPayload>;
   getFranchise(user: User): Promise<Franchise[]>;
   createFranchise(franchise: Franchise): Promise<Franchise>;
-  getFranchises(): Promise<Franchise[]>;
+  getFranchises(page: number, limit: number, nameFilter: string): Promise<FranchiseList>;
   closeFranchise(franchise: Franchise): Promise<void>;
   createStore(franchise: Franchise, store: Store): Promise<Store>;
   closeStore(franchise: Franchise, store: Store): Promise<null>;
   docs(docType: string): Promise<Endpoints>;
 }
 
-export { Role, PizzaService, User, Menu, Pizza, OrderHistory, Order, Franchise, Store, OrderItem, Endpoint, Endpoints, OrderResponse, JWTPayload };
+export { Role, PizzaService, User, Menu, Pizza, OrderHistory, Order, Franchise, FranchiseList, Store, OrderItem, Endpoint, Endpoints, OrderResponse, JWTPayload };
